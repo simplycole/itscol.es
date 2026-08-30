@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WindowPanel from '../components/WindowPanel.astro';
+---
+<BaseLayout title="About" description="About Cole Pearson: full-stack developer, open-source tinkerer, and enthusiast of old computers, electronics, and technical rabbit holes.">
+  <header class="page-heading"><p class="eyebrow">/etc/passwd · user profile: cole.p</p><h1>Curiosity with a toolkit</h1><p>I make things for the web, pull apart old technology, and document what I learn along the way.</p></header>
+  <div class="content-stack">
+    <WindowPanel title="ABOUT.TXT" class="about-panel"><div class="prose">
+      <p>I’m Cole Pearson, a full-stack developer and open-source tinkerer. I like useful software, understandable systems, and projects that make me learn three unexpected things before lunch.</p>
+      <p>My work crosses the boundary between the screen and the workbench: websites and applications, firmware research, hardware preservation, game development, and reverse engineering. Sometimes the goal is a polished tool. Sometimes it’s simply figuring out what an undocumented chip is doing.</p>
+      <p>This site is my home base for that work—professional enough to explain what I do, personal enough to admit there are probably loose screws on the desk.</p><p><em>Just an Old Wizard.</em></p>
+    </div></WindowPanel>
+    <div class="two-column">
+      <WindowPanel title="SYSTEM INFO" eyebrow="Professional toolkit"><ul class="info-list">
+        <li><strong>Web</strong><span>PHP, JavaScript, TypeScript, HTML, CSS</span></li><li><strong>Platforms</strong><span>WordPress, Astro, Node.js</span></li><li><strong>Data</strong><span>SQL and practical application architecture</span></li><li><strong>Tools</strong><span>Git, GitHub, Godot</span></li><li><strong>Mode</strong><span>Full-stack development and careful experimentation</span></li>
+      </ul></WindowPanel>
+      <WindowPanel title="INTERESTS.DAT" eyebrow="Non-exhaustive inventory"><ul class="interest-cloud">{['Open source', 'Reverse engineering', 'Retro computing', 'Firmware', 'Hardware preservation', 'VHS', 'Analog tech', 'Horror', 'Game development', 'Tabletop games', 'Magic: The Gathering', 'Electronics'].map((interest) => <li class="crt-chip">{interest}</li>)}</ul></WindowPanel>
+    </div>
+  </div>
+</BaseLayout>

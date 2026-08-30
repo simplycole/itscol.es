@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WindowPanel from '../components/WindowPanel.astro';
+import { experiments } from '../data/projects';
+---
+<BaseLayout title="Experiments" description="Cole Pearson's lab notebook for hardware archaeology, firmware research, web experiments, and useful technical oddments.">
+  <header class="page-heading page-heading--lab"><p class="eyebrow">/dev/bench · unauthorized repairs likely</p><h1>The junk drawer</h1><p>Half lab notebook, half parts bin. Everything is here because it taught me something.</p></header>
+  <WindowPanel title="BENCH_LOG / OPEN CASE" class="lab-panel" eyebrow="Areas under investigation"><div class="bench-ruler" aria-hidden="true">0····1····2····3····4····5····6····7</div><ul class="lab-list">{experiments.map((item) => <li class="lab-item"><code>{item.code}</code><div><h3>{item.title}</h3><p>{item.description}</p></div><span aria-hidden="true">OPEN</span></li>)}</ul><p class="trash-note">Fresh notes will be filed here once they are coherent enough to survive contact with the internet.</p></WindowPanel>
+</BaseLayout>

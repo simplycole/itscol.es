@@ -1,0 +1,34 @@
+---
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/projects', label: 'Projects' },
+  { href: '/experiments', label: 'Lab' },
+  { href: '/about', label: 'About' },
+  { href: '/resume', label: 'Resume' },
+  { href: '/links', label: 'Links' },
+];
+---
+
+<header class="site-header">
+  <a class="system-brand" href="/" aria-label="itscol.es home">
+    <span class="wizard-identity" aria-hidden="true">
+      <span class="wizard-identity__art">
+        <img src="/assets/wizard-header-apparition.png" alt="" width="384" height="384" />
+        <span class="wizard-eye-glow"></span>
+      </span>
+    </span>
+    <span><strong>COLE P. // THE WIZARD</strong><small>itscol.es / public node</small></span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <ul>
+      {nav.map((item) => (
+        <li><a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
+  <div class="system-status" aria-label="Site status">
+    <span class="status-light" aria-hidden="true"></span>
+    <span>ONLINE</span>
+    <span class="voltage">96.5 MHz</span>
+  </div>
+</header>

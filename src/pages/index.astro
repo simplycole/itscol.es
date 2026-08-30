@@ -1,17 +1,40 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WindowPanel from '../components/WindowPanel.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import CRTMonitor from '../components/CRTMonitor.astro';
+import { projects } from '../data/projects';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout description="Cole Pearson is a full-stack developer, open-source tinkerer, and old-tech enthusiast building software, hardware projects, and strange experiments.">
+  <div class="workstation">
+      <WindowPanel title="/USR/LOCAL/COLE/PROFILE" class="hero-panel" eyebrow="Public access node · connection established">
+        <div class="hero-grid hero">
+          <div>
+            <p class="operator-line"><span>user:</span> cole <span>host:</span> itscol.es <span>status:</span> online</p>
+            <h1>Cole Pearson</h1>
+            <p class="hero-role"><span>Full-stack developer</span><span>Open-source tinkerer</span><span>Old-tech enthusiast</span></p>
+            <p class="hero-spell"><span aria-hidden="true">&gt;</span> just an old wizard.<i aria-hidden="true"></i></p>
+            <p class="hero-copy">I build software, investigate old hardware, publish open-source work, and follow technical rabbit holes until they become projects. Usually after dark.</p>
+            <nav class="command-nav" aria-label="Homepage shortcuts">
+              <a href="/projects">Projects</a><a href="/experiments">Lab</a><a href="/about">About</a><a href="/resume">Resume</a>
+            </nav>
+          </div>
+          <CRTMonitor />
+        </div>
+      </WindowPanel>
+      <div class="home-grid">
+      <WindowPanel title="ACTIVE_PROJECTS.DIR" class="project-panel" eyebrow="Mounted volumes / priority order">
+        <div class="project-grid">{projects.map((project) => <ProjectCard project={project} />)}</div>
+      </WindowPanel>
+      <WindowPanel title="EXTERNAL_I/O" class="channel-panel" eyebrow="Useful exits">
+        <ul class="channel-list">
+          <li><span>01</span><a href="https://github.com/simplycole" target="_blank" rel="noopener noreferrer">GitHub</a><small>source / repositories</small></li>
+          <li><span>02</span><a href="https://linkedin.com/in/simplycole" target="_blank" rel="noopener noreferrer">LinkedIn</a><small>professional inquiries</small></li>
+          <li><span>03</span><a href="/links">Bookmarks</a><small>the wider web</small></li>
+        </ul>
+      </WindowPanel>
+      </div>
+      <p class="machine-residue" aria-hidden="true">NO CARRIER &nbsp;·&nbsp; source unknown &nbsp;·&nbsp; waiting<span></span></p>
+  </div>
+</BaseLayout>

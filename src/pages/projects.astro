@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WindowPanel from '../components/WindowPanel.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../data/projects';
+---
+<BaseLayout title="Projects" description="Open-source, hardware preservation, firmware research, and game development projects by Cole Pearson.">
+  <header class="page-heading"><p class="eyebrow">/projects · mounted records</p><h1>Active files</h1><p>Software, hardware, dead media, and whatever rabbit hole looked interesting this week.</p></header>
+  <div class="content-stack">
+    <WindowPanel title="PROJECTS.DIR" class="project-panel" eyebrow="Featured work / sorted by priority"><div class="project-grid">{projects.map((project) => <div id={project.slug}><ProjectCard project={project} /></div>)}</div></WindowPanel>
+    <WindowPanel title="README.TXT" class="readme-panel"><div class="prose"><p>Each project keeps its own identity. <strong>PLEASE REWIND</strong> belongs to the strange after-hours world of Dead Channel Video. <strong>TamaMedics</strong> is a preservation and research effort. This node is the map, not a costume borrowed from either one.</p><p>Smaller builds and notes are filed on the lab bench as they become coherent.</p></div></WindowPanel>
+  </div>
+</BaseLayout>

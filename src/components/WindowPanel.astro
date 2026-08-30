@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  id?: string;
+  class?: string;
+  eyebrow?: string;
+}
+
+const { title, id, class: className = '', eyebrow } = Astro.props;
+---
+
+<section class:list={['machine-panel', className]} id={id}>
+  <header class="machine-panel__bar">
+    <span class="panel-index" aria-hidden="true">///</span>
+    <h2>{title}</h2>
+    <span class="panel-state" aria-hidden="true">READY</span>
+  </header>
+  <div class="machine-panel__body">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <slot />
+  </div>
+</section>

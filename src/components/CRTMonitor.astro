@@ -1,0 +1,155 @@
+<figure class="crt-monitor" aria-labelledby="crt-caption" tabindex="0">
+  <div class="crt-monitor__case">
+    <div class="crt-monitor__top" aria-hidden="true">
+      <div class="crt-monitor__top-vents"></div>
+      <div class="crt-monitor__handle"></div>
+      <div class="crt-monitor__top-vents"></div>
+    </div>
+    <div class="crt-monitor__side-vents" aria-hidden="true"></div>
+    <div class="crt-monitor__face">
+      <div class="crt-monitor__bezel">
+        <div class="crt-monitor__screen">
+          <div class="crt-display" data-crt-normal>
+            <div class="crt-display__header"><span>CP SIGNAL MONITOR</span><span>CH 03</span></div>
+            <svg class="crt-display__scope" viewBox="0 0 360 150" role="img" aria-label="Stable diagnostic waveform">
+              <g class="crt-grid">
+                <path d="M0 25H360M0 50H360M0 75H360M0 100H360M0 125H360" />
+                <path d="M45 0V150M90 0V150M135 0V150M180 0V150M225 0V150M270 0V150M315 0V150" />
+              </g>
+              <path class="crt-trace crt-trace--ghost" d="M0 91H34l9-4 8 7 9-30 10 57 9-44 10 22 9-8h29l7-5 8 8 8-39 10 68 9-50 10 28 9-10h33l8-5 8 8 9-31 9 57 10-43 9 22 10-8h50" />
+              <path class="crt-trace" d="M0 88H34l9-4 8 7 9-30 10 57 9-44 10 22 9-8h29l7-5 8 8 8-39 10 68 9-50 10 28 9-10h33l8-5 8 8 9-31 9 57 10-43 9 22 10-8h50" />
+            </svg>
+            <dl class="crt-display__readout">
+              <div><dt>NODE</dt><dd>itscol.es</dd></div>
+              <div><dt>USER</dt><dd>cole</dd></div>
+              <div><dt>SIGNAL</dt><dd data-crt-signal>PRESENT</dd></div>
+              <div><dt>LINK</dt><dd>STABLE</dd></div>
+            </dl>
+            <span class="crt-display__cursor" aria-hidden="true"></span>
+          </div>
+          <div class="crt-display crt-display--wizard" data-crt-wizard aria-hidden="true">
+            <div class="crt-display__header"><span>WIZARD MODE</span><span>CH 03</span></div>
+            <div class="crt-display__apparition">
+              <span class="wizard-apparition-art" aria-hidden="true">
+                <img src="/assets/pvm-wizard-apparition.png" alt="" width="640" height="640" />
+                <span class="wizard-eye-glow"></span>
+              </span>
+            </div>
+            <dl class="crt-display__readout crt-display__readout--wizard">
+              <div><dt>MODE</dt><dd>WIZARD</dd></div>
+              <div><dt>USER</dt><dd>cole</dd></div>
+              <div><dt>SIGNAL</dt><dd>ARCANE</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="crt-controls">
+        <div class="crt-controls__button-bank crt-controls__button-bank--input">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><button type="button" aria-label="Toggle wizard display" aria-pressed="false" data-wizard-toggle></button>
+          <span aria-hidden="true" data-wizard-lamp></span><span></span><span></span><span></span>
+        </div>
+        <div class="crt-controls__button-bank crt-controls__button-bank--nav">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="crt-controls__dials"><b></b><b></b><b></b><b></b><b></b></div>
+        <div class="crt-controls__power"><i></i><span></span></div>
+      </div>
+    </div>
+    <div class="crt-monitor__feet" aria-hidden="true"><span></span><span></span></div>
+  </div>
+  <figcaption id="crt-caption">CP-96 professional signal monitor · modified</figcaption>
+</figure>
+
+<script>
+  const monitor = document.querySelector<HTMLElement>('.crt-monitor');
+
+  if (monitor) {
+    let wizardMode = false;
+    let hasDegaussed = false;
+    const wake = () => {
+      if (hasDegaussed || wizardMode) return;
+      hasDegaussed = true;
+      monitor.classList.add('crt-monitor--degaussing');
+      window.setTimeout(() => monitor.classList.remove('crt-monitor--degaussing'), 620);
+    };
+
+    monitor.addEventListener('pointerenter', wake, { once: true });
+    monitor.addEventListener('focus', wake, { once: true });
+
+    const signal = monitor.querySelector<HTMLElement>('[data-crt-signal]');
+    const toggle = monitor.querySelector<HTMLButtonElement>('[data-wizard-toggle]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const messages = ['NO CARRIER', 'SOURCE UNKNOWN', 'CHANNEL LOST'];
+    let signalTimer: number | undefined;
+    let signalRestoreTimer: number | undefined;
+    let transitionTimer: number | undefined;
+    let staticTimer: number | undefined;
+    const triggerStatic = (force = false) => {
+      if (reducedMotion.matches || (wizardMode && !force)) return;
+      window.clearTimeout(staticTimer);
+      monitor.classList.remove('crt-monitor--static-strong');
+      void monitor.offsetWidth;
+      monitor.classList.add('crt-monitor--static-strong');
+      staticTimer = window.setTimeout(() => {
+        monitor.classList.remove('crt-monitor--static-strong');
+      }, 190);
+    };
+
+    const burstOnFocusEntry = (event: FocusEvent) => {
+      if (event.relatedTarget instanceof Node && monitor.contains(event.relatedTarget)) return;
+      triggerStatic();
+    };
+
+    monitor.addEventListener('pointerenter', () => triggerStatic());
+    monitor.addEventListener('focusin', burstOnFocusEntry);
+
+    const restoreSignal = () => {
+      window.clearTimeout(signalRestoreTimer);
+      if (!signal) return;
+      signal.textContent = 'PRESENT';
+      signal.classList.remove('crt-display__signal--drift');
+    };
+
+    const setWizardMode = () => {
+      wizardMode = !wizardMode;
+      restoreSignal();
+      toggle?.setAttribute('aria-pressed', String(wizardMode));
+      monitor.classList.add('crt-monitor--switching');
+      triggerStatic(true);
+      window.clearTimeout(transitionTimer);
+      transitionTimer = window.setTimeout(() => {
+        monitor.classList.toggle('crt-monitor--wizard', wizardMode);
+        monitor.querySelector<HTMLElement>('[data-crt-normal]')?.setAttribute('aria-hidden', String(wizardMode));
+        monitor.querySelector<HTMLElement>('[data-crt-wizard]')?.setAttribute('aria-hidden', String(!wizardMode));
+        monitor.classList.remove('crt-monitor--switching');
+      }, reducedMotion.matches ? 0 : 130);
+    };
+
+    toggle?.addEventListener('click', setWizardMode);
+
+    const scheduleSignalDrift = () => {
+      window.clearTimeout(signalTimer);
+      if (reducedMotion.matches) return;
+      signalTimer = window.setTimeout(() => {
+        if (document.visibilityState === 'visible' && signal && !wizardMode) {
+          signal.textContent = messages[Math.floor(Math.random() * messages.length)];
+          signal.classList.add('crt-display__signal--drift');
+          signalRestoreTimer = window.setTimeout(() => {
+            signal.textContent = 'PRESENT';
+            signal.classList.remove('crt-display__signal--drift');
+          }, 900);
+        }
+        scheduleSignalDrift();
+      }, 45000 + Math.random() * 60000);
+    };
+
+    scheduleSignalDrift();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') scheduleSignalDrift();
+      else {
+        window.clearTimeout(signalTimer);
+        restoreSignal();
+      }
+    });
+  }
+</script>
