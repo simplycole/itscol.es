@@ -5,10 +5,11 @@ const links = [
   { href: 'https://github.com/simplycole', title: 'GitHub', note: 'Code, open-source work, and current repositories.' },
   { href: 'https://linkedin.com/in/simplycole', title: 'LinkedIn', note: 'The professionally sanctioned version of events.' },
   { href: 'https://tamamedics.com', title: 'TamaMedics', note: 'Tamagotchi repair, preservation, and research.' },
+  { href: 'https://github.com/simplycole/signalbox', title: 'Signalbox', note: 'Pandora radio, tuned for the terminal.' },
   { href: 'https://github.com/simplycole/itscol.es', title: 'This site’s source', note: 'Yes, you may look behind the curtain.' },
 ];
 ---
-<BaseLayout title="Links" description="Find Cole Pearson elsewhere on the internet: GitHub, LinkedIn, TamaMedics, and open-source work.">
+<BaseLayout title="Links" description="Find Cole Pearson elsewhere on the internet: GitHub, LinkedIn, featured projects, and open-source work.">
   <header class="page-heading"><p class="eyebrow">bookmarks.html · remote hosts</p><h1>Elsewhere online</h1><p>A short directory of useful exits. Please return your browser tray to its upright position.</p></header>
   <WindowPanel title="LINKS.DIR" class="links-panel"><p class="directory-path">Index of /cole/bookmarks/</p><ul class="link-directory">{links.map((link, index) => <li><span>{String(index + 1).padStart(2, '0')}</span><a href={link.href} target="_blank" rel="noopener noreferrer"><strong>{link.title} <span class="sr-only">(external site, opens in a new tab)</span><span aria-hidden="true">↗</span></strong><small>{link.note}</small></a><em>REMOTE</em></li>)}</ul></WindowPanel>
 </BaseLayout>

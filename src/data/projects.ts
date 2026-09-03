@@ -33,6 +33,17 @@ export const projects: Project[] = [
     source: 'https://github.com/simplycole/tamamedics.com',
     accent: 'cyan',
   },
+  {
+    code: 'SB-001',
+    title: 'Signalbox',
+    slug: 'signalbox',
+    status: 'Early-stage open source',
+    description:
+      'A modern open-source terminal client for Pandora, carrying pianobar’s native-C foundation into a responsive TUI for macOS and Linux.',
+    tags: ['C', 'terminal UI', 'macOS + Linux', 'open source'],
+    source: 'https://github.com/simplycole/signalbox',
+    accent: 'green',
+  },
 ];
 
 export const experiments = [
