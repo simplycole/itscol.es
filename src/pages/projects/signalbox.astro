@@ -2,21 +2,21 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WindowPanel from '../../components/WindowPanel.astro';
 
-const description = 'Signalbox is a modern native-C terminal client for Pandora, evolving pianobar’s foundation into a responsive TUI for macOS and Linux.';
+const description = 'Signalbox is a modern native-C terminal client for Pandora, evolving pianobar’s foundation into a responsive cross-platform TUI targeting macOS, Linux, and Windows.';
 const projectSchema = {
   '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Signalbox', description,
-  url: 'https://itscol.es/projects/signalbox/', applicationCategory: 'MultimediaApplication', operatingSystem: 'macOS, Linux',
+  url: 'https://itscol.es/projects/signalbox/', applicationCategory: 'MultimediaApplication', operatingSystem: 'macOS, Linux, Windows',
   author: { '@type': 'Person', name: 'Cole Pearson', url: 'https://itscol.es' },
   isBasedOn: { '@type': 'SoftwareApplication', name: 'pianobar' },
 };
-const working = ['Pandora authentication', 'Station retrieval and selection', 'Playlist and track retrieval', 'Audio playback', 'Now Playing track, artist, and album metadata', 'Keyboard input handling', 'Responsive terminal resize, reflow, and redraw behavior', 'macOS runtime with macOS/Linux development direction'];
+const working = ['Pandora authentication and session behavior', 'Station retrieval and selection', 'Playlist and track retrieval', 'Audio playback', 'Now Playing track, artist, and album metadata', 'Keyboard input handling', 'Responsive terminal resize, reflow, and redraw behavior', 'macOS runtime and Linux cross-platform work'];
 const focus = [
   ['Native C', 'Working in and extending an established native-C application foundation.'],
   ['Terminal UI', 'Building a responsive interface with distinct Stations and Now Playing regions—not treating stdout as a static stream.'],
   ['Audio', 'Maintaining real Pandora streaming and playback behavior while modernizing the surrounding application experience.'],
   ['Input + State', 'Handling keyboard interaction, authentication and session behavior, selection, playback, and application state inside a terminal.'],
   ['Resize / Reflow', 'Detecting live terminal dimension changes and rebuilding or redrawing interface regions correctly.'],
-  ['Cross-Platform', 'Keeping macOS and Linux runtime, build, toolchain, and compatibility concerns in view.'],
+  ['Cross-Platform', 'Developing across macOS, Linux, and Windows while preserving the application’s native-C terminal architecture. The native Windows .exe target is in active development.'],
   ['Debugging', 'Using runtime instrumentation and logging to trace terminal behavior and diagnose rendering and state problems.'],
 ];
 ---
@@ -27,11 +27,11 @@ const focus = [
   canonicalPath="/projects/signalbox/"
   schema={projectSchema}
   socialImagePath="/signalbox-social-card.png"
-  socialImageAlt="Signalbox — Modern Terminal Client for Pandora by Cole Pearson"
+  socialImageAlt="Signalbox — Cross-platform native-C terminal client for Pandora by Cole Pearson"
 >
-  <header class="page-heading"><p class="eyebrow">/projects/signalbox · active process</p><h1>Signalbox</h1><p>Modern terminal client for Pandora, carrying pianobar’s native-C foundation into a responsive terminal user interface for macOS and Linux.</p></header>
+  <header class="page-heading"><p class="eyebrow">/projects/signalbox · active process</p><h1>Signalbox</h1><p>Modern native-C terminal client for Pandora, evolving pianobar’s foundation into a responsive cross-platform TUI targeting macOS, Linux, and Windows.</p></header>
   <div class="content-stack project-detail">
-    <WindowPanel title="SB-001 // PROJECT STATUS" eyebrow="Independent engineering / FOSS project"><ul class="info-list project-facts"><li><strong>Role</strong><span>Creator / Maintainer</span></li><li><strong>Status</strong><span>Active Development</span></li><li><strong>Stack</strong><span>C · Terminal UI · Pandora · Audio · macOS · Linux · Git</span></li><li><strong>Repository</strong><span>Currently private during active development.</span></li></ul></WindowPanel>
+    <WindowPanel title="SB-001 // PROJECT STATUS" eyebrow="Independent engineering / FOSS project"><ul class="info-list project-facts"><li><strong>Role</strong><span>Creator / Maintainer</span></li><li><strong>Status</strong><span>Active Development</span></li><li><strong>Stack</strong><span>C · Terminal UI · Pandora · Audio · macOS · Linux · Windows · Git</span></li><li><strong>Windows</strong><span>Native .exe target currently in active development.</span></li><li><strong>Repository</strong><span>Currently private during active development.</span></li></ul></WindowPanel>
     <WindowPanel title="OVERVIEW.TXT" class="readme-panel"><div class="prose"><p>Signalbox takes pianobar’s proven native-C foundation and asks what a modern, responsive Pandora terminal client can look like while keeping the speed, simplicity, and character of a native terminal application.</p><p>It is more than a visual reskin. The work reaches through the interaction model, terminal state and rendering, live resize behavior, audio playback, keyboard input, authentication and session behavior, build tooling, and cross-platform compatibility while modernizing an established codebase.</p></div></WindowPanel>
     <div class="two-column">
       <WindowPanel title="CURRENTLY_WORKING.LOG" eyebrow="Implemented and tested"><ul class="status-list">{working.map((item) => <li><span aria-hidden="true">✓</span>{item}</li>)}</ul></WindowPanel>
@@ -40,7 +40,7 @@ const focus = [
     <WindowPanel title="ENGINEERING_FOCUS.DIR" class="project-panel" eyebrow="Current areas of work"><div class="project-grid focus-grid">{focus.map(([title, copy]) => <article class="project-card"><h3>{title}</h3><p>{copy}</p></article>)}</div></WindowPanel>
     <div class="two-column">
       <WindowPanel title="LINEAGE.TXT"><div class="prose"><p>Signalbox carries forward and builds upon pianobar’s native-C foundation. The project respects that lineage while evolving the interface and interaction model; it does not present the underlying work as something written from scratch.</p></div></WindowPanel>
-      <WindowPanel title="ROAD_AHEAD.LOG"><ul class="status-list status-list--pending"><li><span aria-hidden="true">›</span>Continued TUI refinement and interaction polish</li><li><span aria-hidden="true">›</span>Terminal-size resilience</li><li><span aria-hidden="true">›</span>Cross-platform validation</li><li><span aria-hidden="true">›</span>Documentation and eventual public source release</li></ul></WindowPanel>
+      <WindowPanel title="ROAD_AHEAD.LOG"><ul class="status-list status-list--pending"><li><span aria-hidden="true">›</span>Native Windows .exe target in active development</li><li><span aria-hidden="true">›</span>Continued TUI refinement and interaction polish</li><li><span aria-hidden="true">›</span>Terminal-size resilience</li><li><span aria-hidden="true">›</span>Cross-platform validation</li><li><span aria-hidden="true">›</span>Documentation and eventual public source release</li></ul></WindowPanel>
     </div>
     <div class="button-row"><a class="button" href="/projects/">Return to projects</a></div>
   </div>

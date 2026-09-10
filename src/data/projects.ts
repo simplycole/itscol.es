@@ -17,8 +17,8 @@ export const projects: Project[] = [
     slug: 'signalbox',
     status: 'Active development',
     description:
-      'Modern terminal client for Pandora, carrying pianobar’s native-C foundation into a responsive terminal UI for macOS and Linux.',
-    tags: ['C', 'terminal UI', 'macOS', 'Linux', 'FOSS project'],
+      'Modern native-C terminal client for Pandora, evolving pianobar’s foundation into a responsive cross-platform TUI for macOS, Linux, and Windows.',
+    tags: ['C', 'terminal UI', 'cross-platform', 'FOSS project'],
     url: '/projects/signalbox/',
     accent: 'green',
   },

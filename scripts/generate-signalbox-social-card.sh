@@ -21,8 +21,8 @@ magick -size 1200x630 xc:'#020302' \
   -fill '#cbc9bd' -font "$ui_font" -pointsize 58 -draw 'text 80,208 "SIGNALBOX"' \
   -fill '#779b68' -font "$mono_font" -pointsize 23 -weight 400 -draw 'text 82,262 "MODERN TERMINAL"' \
   -draw 'text 82,296 "CLIENT FOR PANDORA"' \
-  -fill '#858d83' -pointsize 18 -draw 'text 82,360 "C  •  TUI"' \
-  -draw 'text 82,393 "MACOS  •  LINUX"' \
+  -fill '#858d83' -pointsize 18 -draw 'text 82,360 "C  •  TUI  •  CROSS-PLATFORM"' \
+  -draw 'text 82,393 "MACOS  •  LINUX  •  WINDOWS"' \
   -fill '#a95473' -pointsize 18 -draw 'text 82,518 "> BY COLE PEARSON"' \
   -fill '#50664a' -pointsize 15 -draw 'text 82,551 "ITSCOL.ES"' \
   -fill '#030403' -stroke '#344035' -strokewidth 3 -draw 'rectangle 466,79 1136,557' \

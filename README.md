@@ -68,7 +68,7 @@ npm run preview
 
 - [PLEASE REWIND / Dead Channel Video](/projects#please-rewind) — a horror game set in a fictional 1990s independent video store
 - [TamaMedics](https://tamamedics.com) — open-source Tamagotchi repair, preservation, and reverse-engineering work
-- [Signalbox](https://github.com/simplycole/signalbox) — a modern open-source terminal client for Pandora, built on the legacy of pianobar
+- [Signalbox](https://itscol.es/projects/signalbox/) — a modern open-source terminal client for Pandora, built on the legacy of pianobar
 - [GitHub profile](https://github.com/simplycole) — source code and public repositories
 
 ## Deployment
