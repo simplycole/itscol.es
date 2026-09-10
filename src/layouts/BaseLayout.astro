@@ -8,6 +8,7 @@ interface Props {
   description: string;
   noindex?: boolean;
   canonicalPath?: string | false;
+  schema?: Record<string, unknown>;
 }
 
 const {
@@ -15,12 +16,21 @@ const {
   description,
   noindex = false,
   canonicalPath,
+  schema,
 } = Astro.props;
-const siteName = 'Cole Pearson — Full-Stack Developer & Open-Source Tinkerer';
+const siteName = 'Cole Pearson — Senior Software Engineer | Full Stack & Platform Engineer';
 const pageTitle = title ? `${title} — Cole Pearson` : siteName;
 const site = Astro.site ?? new URL('https://itscol.es');
 const canonical = canonicalPath === false ? undefined : new URL(canonicalPath ?? Astro.url.pathname, site);
 const socialImage = new URL('/social-card.png', site);
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Cole Pearson',
+  url: site.href,
+  jobTitle: 'Senior Software Engineer | Full Stack / Platform Engineer',
+  sameAs: ['https://github.com/simplycole', 'https://linkedin.com/in/simplycole'],
+};
 ---
 
 <!doctype html>
@@ -46,11 +56,12 @@ const socialImage = new URL('/social-card.png', site);
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Cole Pearson — Full-stack developer, open-source tinkerer, and old-tech enthusiast" />
+    <meta property="og:image:alt" content="Cole Pearson — Senior Software Engineer and Full Stack / Platform Engineer" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(schema ?? personSchema)} />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>

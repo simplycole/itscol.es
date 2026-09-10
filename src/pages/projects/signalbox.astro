@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WindowPanel from '../../components/WindowPanel.astro';
+
+const description = 'Signalbox is a modern native-C terminal client for Pandora, evolving pianobar’s foundation into a responsive TUI for macOS and Linux.';
+const projectSchema = {
+  '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Signalbox', description,
+  url: 'https://itscol.es/projects/signalbox/', applicationCategory: 'MultimediaApplication', operatingSystem: 'macOS, Linux',
+  author: { '@type': 'Person', name: 'Cole Pearson', url: 'https://itscol.es' },
+  isBasedOn: { '@type': 'SoftwareApplication', name: 'pianobar' },
+};
+const working = ['Pandora authentication', 'Station retrieval and selection', 'Playlist and track retrieval', 'Audio playback', 'Now Playing track, artist, and album metadata', 'Keyboard input handling', 'Responsive terminal resize, reflow, and redraw behavior', 'macOS runtime with macOS/Linux development direction'];
+const focus = [
+  ['Native C', 'Working in and extending an established native-C application foundation.'],
+  ['Terminal UI', 'Building a responsive interface with distinct Stations and Now Playing regions—not treating stdout as a static stream.'],
+  ['Audio', 'Maintaining real Pandora streaming and playback behavior while modernizing the surrounding application experience.'],
+  ['Input + State', 'Handling keyboard interaction, authentication and session behavior, selection, playback, and application state inside a terminal.'],
+  ['Resize / Reflow', 'Detecting live terminal dimension changes and rebuilding or redrawing interface regions correctly.'],
+  ['Cross-Platform', 'Keeping macOS and Linux runtime, build, toolchain, and compatibility concerns in view.'],
+  ['Debugging', 'Using runtime instrumentation and logging to trace terminal behavior and diagnose rendering and state problems.'],
+];
+---
+
+<BaseLayout title="Signalbox — Native C Terminal Client for Pandora" description={description} canonicalPath="/projects/signalbox/" schema={projectSchema}>
+  <header class="page-heading"><p class="eyebrow">/projects/signalbox · active process</p><h1>Signalbox</h1><p>Modern terminal client for Pandora, carrying pianobar’s native-C foundation into a responsive terminal user interface for macOS and Linux.</p></header>
+  <div class="content-stack project-detail">
+    <WindowPanel title="SB-001 // PROJECT STATUS" eyebrow="Independent engineering / FOSS project"><ul class="info-list project-facts"><li><strong>Role</strong><span>Creator / Maintainer</span></li><li><strong>Status</strong><span>Active Development</span></li><li><strong>Stack</strong><span>C · Terminal UI · Pandora · Audio · macOS · Linux · Git</span></li><li><strong>Repository</strong><span>Currently private during active development.</span></li></ul></WindowPanel>
+    <WindowPanel title="OVERVIEW.TXT" class="readme-panel"><div class="prose"><p>Signalbox takes pianobar’s proven native-C foundation and asks what a modern, responsive Pandora terminal client can look like while keeping the speed, simplicity, and character of a native terminal application.</p><p>It is more than a visual reskin. The work reaches through the interaction model, terminal state and rendering, live resize behavior, audio playback, keyboard input, authentication and session behavior, build tooling, and cross-platform compatibility while modernizing an established codebase.</p></div></WindowPanel>
+    <div class="two-column">
+      <WindowPanel title="CURRENTLY_WORKING.LOG" eyebrow="Implemented and tested"><ul class="status-list">{working.map((item) => <li><span aria-hidden="true">✓</span>{item}</li>)}</ul></WindowPanel>
+      <WindowPanel title="WHY_I_BUILT_IT.TXT" eyebrow="Operator note"><div class="prose"><p>I’ve always liked software that does one thing well, stays close to the machine, and does not need a browser tab to justify its existence.</p><p>Signalbox became an excuse to revisit native C, terminal application design, audio, cross-platform behavior, and the strange engineering problems that only show up when the entire UI lives inside a terminal.</p></div></WindowPanel>
+    </div>
+    <WindowPanel title="ENGINEERING_FOCUS.DIR" class="project-panel" eyebrow="Current areas of work"><div class="project-grid focus-grid">{focus.map(([title, copy]) => <article class="project-card"><h3>{title}</h3><p>{copy}</p></article>)}</div></WindowPanel>
+    <div class="two-column">
+      <WindowPanel title="LINEAGE.TXT"><div class="prose"><p>Signalbox carries forward and builds upon pianobar’s native-C foundation. The project respects that lineage while evolving the interface and interaction model; it does not present the underlying work as something written from scratch.</p></div></WindowPanel>
+      <WindowPanel title="ROAD_AHEAD.LOG"><ul class="status-list status-list--pending"><li><span aria-hidden="true">›</span>Continued TUI refinement and interaction polish</li><li><span aria-hidden="true">›</span>Terminal-size resilience</li><li><span aria-hidden="true">›</span>Cross-platform validation</li><li><span aria-hidden="true">›</span>Documentation and eventual public source release</li></ul></WindowPanel>
+    </div>
+    <div class="button-row"><a class="button" href="/projects/">Return to projects</a></div>
+  </div>
+</BaseLayout>

@@ -15,8 +15,8 @@ const { project } = Astro.props;
     {project.tags.map((tag) => <li class="crt-chip">{tag}</li>)}
   </ul>
   <div class="button-row">
-    {project.url && <a class="button" href={project.url} target="_blank" rel="noopener noreferrer">Visit project <span aria-hidden="true">↗</span></a>}
+    {project.url && <a class="button" href={project.url} target={project.url.startsWith('http') ? '_blank' : undefined} rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}>{project.slug === 'signalbox' ? 'Read project file' : 'Visit project'} {project.url.startsWith('http') && <span aria-hidden="true">↗</span>}</a>}
     {project.source && <a class="text-link" href={project.source} target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a>}
-    {!project.url && !project.source && <a class="button" href="/projects#please-rewind">Read project file</a>}
+    {!project.url && !project.source && <a class="button" href={`/projects#${project.slug}`}>Read project file</a>}
   </div>
 </article>

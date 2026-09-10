@@ -3,102 +3,59 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import WindowPanel from '../components/WindowPanel.astro';
 
 const experience = [
-  {
-    company: 'Nursing CE Central', dates: '02/2026 – Present', role: 'Senior Full Stack Web Developer',
-    details: [
-      'Develop and maintain custom WordPress-based learning, membership, certificate, dashboard, reporting, and integration systems for a continuing education platform.',
-      'Build database-backed WordPress and PHP features across LearnDash, certificates, dashboards, state-specific workflows, and user account systems.',
-      'Develop shortcodes, helper functions, API integrations, and reusable platform logic to improve reporting, membership, and certificate workflows.',
-      'Debug and validate production workflows across local and staging environments, including user metadata, SQL records, and third-party reporting integrations.',
-    ],
-  },
-  {
-    company: 'demandDrive', dates: '08/2024 – 02/2026', role: 'Senior Software Engineer / Full Stack Developer',
-    details: [
-      'Architected, developed, and optimized full-stack software and internal platforms with distributed teams.',
-      'Designed and maintained applications aligned with business, operational, and user-experience requirements.',
-      'Translated ambiguous business needs into maintainable technical solutions.',
-      'Improved reliability through production debugging, optimization, documentation, and development-process improvements.',
-    ],
-  },
-  {
-    company: 'JRP', dates: '03/2020 – 08/2024', role: 'Senior Software Engineer / Full Stack Developer',
-    details: [
-      'Led development, deployment, and maintenance of responsive websites, custom applications, and client-facing digital platforms.',
-      'Developed and deployed more than 100 websites using WordPress, custom themes, plugins, PHP, JavaScript, HTML, CSS, and MySQL.',
-      'Built reusable components, custom functionality, and CMS-driven solutions.',
-      'Configured development environments, staging workflows, hosting, and production deployments.',
-    ],
-  },
-  {
-    company: 'OTR Wheel Engineering, Inc.', dates: '08/2014 – 03/2020', role: 'Senior Web Developer / Web Development Manager',
-    details: [
-      'Managed web development for public websites, internal applications, marketing assets, and e-commerce initiatives across multiple subsidiaries.',
-      'Maintained Linux-based web and application infrastructure using NGINX, Apache, and MySQL.',
-      'Designed and developed internal tools supporting inventory, pricing, customer service, and sales workflows.',
-      "Led development and launch of the company's e-commerce platform, generating more than $600,000 in sales within its first six months.",
-    ],
-  },
-  {
-    company: 'Wolters Kluwer', dates: '07/2006 – 08/2014', role: 'Applications Developer II',
-    details: [
-      'Supported enterprise software releases, build automation, installer projects, and Agile SDLC processes for tax and accounting software platforms.',
-      'Built and maintained automated desktop and web build processes using MSBuild, PowerShell, XAML, and Visual Build.',
-      'Supported release candidates, installer workflows, source control, and customer-facing software delivery.',
-    ],
-  },
+  { company: 'Nursing CE Central', dates: '02/2026 – Present', role: 'Senior Full Stack Web Developer', details: [
+    'Engineer business-critical customer, learning, licensing, certification, membership, dashboard, regulatory-reporting, and integration systems for a 611,000+ nurse customer base within a lean five-person organization.',
+    'Build database-backed PHP and WordPress workflows for state-specific continuing-education requirements, user accounts, certificates, memberships, and reporting.',
+    'Develop and support HubSpot integrations, synchronization, validation, and reconciliation across platform and CRM data.',
+    'Troubleshoot production behavior and validate changes locally and in staging; normalize, deduplicate, reconcile, and report against large operational datasets.',
+  ] },
+  { company: 'demandDrive', dates: '08/2024 – 02/2026', role: 'Senior Software Engineer | Full Stack Developer', details: [
+    'Joined following demandDrive’s acquisition of JRP and continued full-stack engineering and application ownership across client web platforms and internal systems.',
+    'Built and maintained data workflows, operational tooling, and database-driven management reports aligned with business requirements.',
+    'Improved reliability through production troubleshooting, documentation, and close collaboration across a distributed team.',
+  ] },
+  { company: 'JRP', dates: '03/2020 – 08/2024', role: 'Senior Software Engineer | Full Stack Developer', details: [
+    'Owned full-lifecycle development across 250+ manufacturing-industry clients, from discovery, requirements, and architecture through launch, hosting, maintenance, and support.',
+    'Built custom applications, database-driven tools, internal business systems, integrations, and WordPress platforms using PHP, JavaScript, SQL/MySQL, HTML/CSS, and REST APIs.',
+    'Managed production infrastructure and delivery across domains, DNS, hosting, SSL, staging, migrations, deployments, performance, and troubleshooting.',
+  ] },
+  { company: 'OTR Wheel Engineering', dates: '08/2014 – 03/2020', role: 'Web Development Manager | E-Commerce Manager', details: [
+    'Led web and e-commerce engineering while supporting application systems, databases, hosting, and broader technical operations.',
+    'Designed a searchable sales-facing product-fitment database spanning hundreds of thousands of part, equipment, tire, and product relationships.',
+    'Led development and launch of an e-commerce platform that generated more than $600,000 in sales during its first six months.',
+    'Produced technical video content supporting products, sales, and customer education.',
+  ] },
+  { company: 'Wolters Kluwer / CCH Small Firm Services', dates: '07/2006 – 08/2014', role: 'Applications Developer II | Applications Developer | Tax Forms QA Analyst | Technical Support', details: [
+    'Advanced through technical support, QA, application development, and build/release engineering roles supporting enterprise tax and accounting software.',
+    'Built and maintained MSBuild, PowerShell, XAML, and Visual Build workflows across approximately 15 software product families and 15 Agile/Scrum teams.',
+    'Supported an 85+ VM virtualization environment, build validation, compatibility testing, release workflows, SharePoint administration, and customer-facing web applications.',
+    'Helped support infrastructure for the Kennesaw facility and server room alongside enterprise software delivery responsibilities.',
+  ] },
 ];
 
-const technicalSkills = ['PHP', 'WordPress', 'Custom Themes & Plugins', 'JavaScript', 'TypeScript', 'React', 'REST APIs', 'API Integrations', 'SQL', 'MySQL', 'Git', 'Docker', 'Linux', 'NGINX', 'CI/CD', 'Debugging', 'Performance Optimization', 'HTML', 'CSS', 'Astro', 'Node.js'];
-const professionalSkills = ['Problem-solving', 'Cross-functional collaboration', 'Stakeholder communication', 'Technical leadership', 'Requirements translation', 'Testing & validation'];
+const independentWork = [
+  { company: 'Pixel & Stack', role: 'Founder / Software Engineer · Ongoing', detail: 'Independent software and web consultancy delivering full-stack systems, database-driven internal tools, integrations, hosting and infrastructure, maintenance, and long-term production support across the complete delivery lifecycle.' },
+  { company: 'Signalbox', role: 'Creator / Maintainer · Open-Source Terminal Client', detail: 'Building a responsive native-C terminal client for Pandora on macOS and Linux, carrying forward pianobar’s foundation while working across terminal rendering, input, audio, state, resize behavior, and compatibility.' },
+  { company: 'PLEASE REWIND: A Dead Channel Video Story', role: 'Creator / Developer', detail: 'Developing an independent 3D game in Godot 4 across gameplay and state systems, tooling, debugging, performance optimization, and iterative production engineering.' },
+  { company: 'WordPress', role: 'Volunteer Open-Source Contributor · circa 2020 – 2024', detail: 'Participated in release-candidate and pre-release testing, validation, and issue reporting for the open-source WordPress project.' },
+];
+
+const skillGroups = [
+  { title: 'Engineering', skills: ['Full-Stack Development', 'Application Architecture', 'Relational Data Modeling', 'REST APIs', 'Systems Integration', 'Internal Platforms', 'E-Commerce'] },
+  { title: 'Languages', skills: ['PHP', 'JavaScript', 'SQL', 'C', 'GDScript', 'HTML', 'CSS'] },
+  { title: 'Platforms', skills: ['React', 'Astro', 'Microsoft SharePoint', 'Godot 4', 'WordPress'] },
+  { title: 'Data + Infrastructure', skills: ['MySQL', 'Linux', 'Docker', 'NGINX', 'Apache', 'Virtualization', 'DNS', 'Hosting', 'Staging / Production Environments'] },
+  { title: 'Delivery', skills: ['Git', 'CI/CD', 'Build & Release Engineering', 'Testing', 'Validation', 'Production Support', 'Agile/Scrum', 'MSBuild', 'PowerShell', 'XAML', 'Visual Build'] },
+];
 ---
 
-<BaseLayout title="Résumé" description="The professional experience and technical capabilities of Senior Full Stack Software Engineer Cole Pearson.">
-  <header class="page-heading page-heading--resume">
-    <p class="eyebrow">resume.txt · human-readable mode</p>
-    <h1>Work, minus the fog</h1>
-    <p>Cole Pearson · Senior Full Stack Software Engineer</p>
-  </header>
-
+<BaseLayout title="Résumé" description="The experience and technical capabilities of Cole Pearson, Senior Software Engineer and Full Stack / Platform Engineer with 20+ years in software delivery.">
+  <header class="page-heading page-heading--resume"><p class="eyebrow">resume.txt · human-readable mode</p><h1>Work, minus the fog</h1><p>Cole Pearson · Senior Software Engineer · Full Stack / Platform Engineer</p></header>
   <div class="content-stack resume-document">
-    <WindowPanel title="01 // PROFILE" class="resume-panel">
-      <div class="resume-profile">
-        <p>Senior Full Stack Software Engineer with 20+ years of experience building scalable web applications, custom platforms, API integrations, internal tools, and business-critical systems.</p>
-        <p>Strong across application architecture, maintainable product development, production debugging, and performance optimization.</p>
-      </div>
-    </WindowPanel>
-
-    <WindowPanel title="02 // EXPERIENCE" class="resume-panel resume-panel--experience">
-      <ol class="experience-list">
-        {experience.map((job) => (
-          <li class="experience-item">
-            <div class="experience-item__heading">
-              <div><h3>{job.company}</h3><p>{job.role}</p></div>
-              <p class="experience-item__dates">{job.dates}</p>
-            </div>
-            <ul>{job.details.map((detail) => <li>{detail}</li>)}</ul>
-          </li>
-        ))}
-      </ol>
-    </WindowPanel>
-
-    <WindowPanel title="03 // TOOLCHAIN" class="resume-panel">
-      <ul class="skill-list" aria-label="Technical skills">{technicalSkills.map((skill) => <li class="crt-chip">{skill}</li>)}</ul>
-    </WindowPanel>
-
-    <WindowPanel title="04 // PROFESSIONAL CAPABILITIES" class="resume-panel">
-      <ul class="skill-list skill-list--professional" aria-label="Professional skills">{professionalSkills.map((skill) => <li class="crt-chip">{skill}</li>)}</ul>
-    </WindowPanel>
-
-    <WindowPanel title="05 // EDUCATION" class="resume-panel">
-      <div class="education-item">
-        <div><h3>Berry College</h3><p>Bachelor's Degree — Computer Science</p></div>
-        <p class="experience-item__dates">01/2002 – 01/2006</p>
-      </div>
-      <div class="button-row resume-contact">
-        <a class="button" href="https://linkedin.com/in/simplycole" target="_blank" rel="noopener noreferrer">Professional inquiries via LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="text-link" href="https://github.com/simplycole" target="_blank" rel="noopener noreferrer">Inspect GitHub <span aria-hidden="true">↗</span></a>
-      </div>
-    </WindowPanel>
+    <WindowPanel title="01 // PROFILE" class="resume-panel"><div class="resume-profile"><p>Senior Software Engineer and Full Stack Engineer with 20+ years designing and delivering business-critical applications, data platforms, APIs, integrations, enterprise systems, and production infrastructure.</p><p>Experienced across the complete lifecycle—from architecture and relational data modeling through development, testing, DevOps, deployment, troubleshooting, and long-term production support.</p></div></WindowPanel>
+    <WindowPanel title="02 // EXPERIENCE" class="resume-panel resume-panel--experience"><ol class="experience-list">{experience.map((job) => <li class="experience-item"><div class="experience-item__heading"><div><h3>{job.company}</h3><p>{job.role}</p></div><p class="experience-item__dates">{job.dates}</p></div><ul>{job.details.map((detail) => <li>{detail}</li>)}</ul></li>)}</ol></WindowPanel>
+    <WindowPanel title="03 // INDEPENDENT ENGINEERING + OPEN SOURCE" class="resume-panel resume-panel--experience"><ol class="experience-list">{independentWork.map((item) => <li class="experience-item"><div class="experience-item__heading"><div><h3>{item.company}</h3><p>{item.role}</p></div></div><ul><li>{item.detail}</li></ul></li>)}</ol></WindowPanel>
+    <WindowPanel title="04 // TOOLCHAIN" class="resume-panel"><div class="skill-groups">{skillGroups.map((group) => <section><h3>{group.title}</h3><ul class="skill-list" aria-label={`${group.title} skills`}>{group.skills.map((skill) => <li class="crt-chip">{skill}</li>)}</ul></section>)}</div></WindowPanel>
+    <WindowPanel title="05 // EDUCATION + CREDENTIALS" class="resume-panel"><div class="education-item"><div><h3>Berry College</h3><p>Bachelor's Degree — Computer Science · Rome, GA</p></div><p class="experience-item__dates">2002 – 2006</p></div><div class="education-item education-item--secondary"><div><h3>Certified ScrumMaster (CSM)</h3><p>Scrum Alliance · Earned during Wolters Kluwer tenure</p></div></div><div class="button-row resume-contact"><a class="button" href="https://linkedin.com/in/simplycole" target="_blank" rel="noopener noreferrer">Professional inquiries via LinkedIn <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/simplycole" target="_blank" rel="noopener noreferrer">Inspect GitHub <span aria-hidden="true">↗</span></a></div></WindowPanel>
   </div>
 </BaseLayout>

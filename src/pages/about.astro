@@ -2,17 +2,19 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WindowPanel from '../components/WindowPanel.astro';
 ---
-<BaseLayout title="About" description="About Cole Pearson: full-stack developer, open-source tinkerer, and enthusiast of old computers, electronics, and technical rabbit holes.">
-  <header class="page-heading"><p class="eyebrow">/etc/passwd · user profile: cole.p</p><h1>Curiosity with a toolkit</h1><p>I make things for the web, pull apart old technology, and document what I learn along the way.</p></header>
+<BaseLayout title="About" description="Cole Pearson is a Senior Software Engineer and Full Stack / Platform Engineer with 20+ years of experience building and supporting business-critical software.">
+  <header class="page-heading"><p class="eyebrow">/etc/passwd · user profile: cole.p</p><h1>Twenty years in the machine</h1><p>I build, deploy, debug, and support software from its data model to the production environment around it.</p></header>
   <div class="content-stack">
     <WindowPanel title="ABOUT.TXT" class="about-panel"><div class="prose">
-      <p>I’m Cole Pearson, a full-stack developer and open-source tinkerer. I like useful software, understandable systems, and projects that make me learn three unexpected things before lunch.</p>
-      <p>My work crosses the boundary between the screen and the workbench: websites and applications, firmware research, hardware preservation, game development, and reverse engineering. Sometimes the goal is a polished tool. Sometimes it’s simply figuring out what an undocumented chip is doing.</p>
-      <p>This site is my home base for that work—professional enough to explain what I do, personal enough to admit there are probably loose screws on the desk.</p><p><em>Just an Old Wizard.</em></p>
+      <p>I’m Cole Pearson, a Senior Software Engineer and Full Stack / Platform Engineer. For more than twenty years I’ve worked across application architecture, relational data, integrations, build systems, infrastructure, releases, and the long production tail after software meets real users.</p>
+      <p>I started at Wolters Kluwer in technical support and QA, then moved through application development, build and release engineering, virtualization, SharePoint, infrastructure, and customer-facing web applications. That progression taught me to see software as a whole system: source, build, environment, data, delivery, and support.</p>
+      <p>At OTR Wheel Engineering, I led web and e-commerce work while building database-driven application systems, including a product-fitment tool spanning hundreds of thousands of equipment, part, tire, and product relationships. At JRP—and later demandDrive after its acquisition—I owned full-lifecycle development across a portfolio of more than 250 manufacturing clients: discovery, architecture, applications, internal tools, reporting and data workflows, integrations, hosting, deployment, and production support.</p>
+      <p>Today at Nursing CE Central, I work on business-critical customer, learning, licensing, certification, reporting, CRM, regulatory, and data systems used by more than 611,000 nurses. The team is lean, the datasets are not, and reliable end-to-end ownership matters.</p>
+      <p>Outside that work, I keep building: Signalbox in native C, PLEASE REWIND in Godot 4, TamaMedics for open-source preservation and research, and client systems through Pixel &amp; Stack. This site is the public terminal for all of it—professional enough to explain what I do, personal enough to admit there are probably loose screws on the desk.</p><p><em>Just an Old Wizard.</em></p>
     </div></WindowPanel>
     <div class="two-column">
       <WindowPanel title="SYSTEM INFO" eyebrow="Professional toolkit"><ul class="info-list">
-        <li><strong>Web</strong><span>PHP, JavaScript, TypeScript, HTML, CSS</span></li><li><strong>Platforms</strong><span>WordPress, Astro, Node.js</span></li><li><strong>Data</strong><span>SQL and practical application architecture</span></li><li><strong>Tools</strong><span>Git, GitHub, Godot</span></li><li><strong>Mode</strong><span>Full-stack development and careful experimentation</span></li>
+        <li><strong>Engineering</strong><span>Full-stack systems, application architecture, REST APIs, integrations</span></li><li><strong>Languages</strong><span>PHP, JavaScript, SQL, C, GDScript, HTML/CSS</span></li><li><strong>Data</strong><span>Relational modeling, MySQL, reporting, normalization, reconciliation</span></li><li><strong>Platforms</strong><span>React, Astro, SharePoint, Godot 4, WordPress</span></li><li><strong>Operations</strong><span>Linux, Docker, CI/CD, hosting, build/release engineering, production support</span></li>
       </ul></WindowPanel>
       <WindowPanel title="INTERESTS.DAT" eyebrow="Non-exhaustive inventory"><ul class="interest-cloud">{['Open source', 'Reverse engineering', 'Retro computing', 'Firmware', 'Hardware preservation', 'VHS', 'Analog tech', 'Horror', 'Game development', 'Tabletop games', 'Magic: The Gathering', 'Electronics'].map((interest) => <li class="crt-chip">{interest}</li>)}</ul></WindowPanel>
     </div>
